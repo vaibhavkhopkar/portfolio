@@ -5,30 +5,21 @@ import dynamic from "next/dynamic";
 import ScrollSection from "./ui/ScrollSection";
 import { Linkedin } from "lucide-react";
 
-const ThreeCanvas = dynamic(
-  () => import("@react-three/fiber").then((m) => ({ default: m.Canvas })),
-  { ssr: false }
-);
-const RealisticEarth = dynamic(() => import("./RealisticEarth"), { ssr: false });
+// Swap out the 3D Earth for the Cloud/Network Visualization
+const NetworkCanvas = dynamic(() => import("./NetworkCanvas"), {
+  ssr: false,
+});
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        overflow: "hidden",
-        paddingTop: "66px",
-      }}
+      style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}
     >
-      {/* ── Background ── */}
+      {/* 3D Network Background replacing the Earth */}
+      <NetworkCanvas />
 
-      {/* ── Subtle 3D Globe in the Background ── */}
-
-      {/* ── Main Layout ── */}
+      {/* Hero Content Overlapping the 3D Canvas */}
       <div
         style={{
           position: "relative",
@@ -195,14 +186,17 @@ export default function Hero() {
         {/* RIGHT PHOTO */}
         <ScrollSection className="animate-float">
           <div
+            className="glass-panel"
             style={{
               position: "relative",
               width: "100%",
-              maxWidth: "460px",
+              maxWidth: "340px",
+              aspectRatio: "3/4",
               margin: "0 auto",
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-end",
               justifyContent: "center",
+              overflow: "hidden",
             }}
           >
             {/* Cinematic Backlight Glow (behind the person) */}
@@ -212,9 +206,9 @@ export default function Hero() {
                 top: "40%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: "400px",
-                height: "400px",
-                background: "radial-gradient(circle, color-mix(in srgb, var(--brand-gold) 15%, transparent) 0%, transparent 65%)",
+                width: "100%",
+                height: "100%",
+                background: "radial-gradient(circle, color-mix(in srgb, var(--brand-gold) 15%, transparent) 0%, transparent 70%)",
                 borderRadius: "50%",
                 filter: "blur(20px)",
                 zIndex: 0,
@@ -227,15 +221,11 @@ export default function Hero() {
               alt="Vaibhav Khopkar" 
               style={{
                 width: "100%",
-                height: "auto",
-                maxHeight: "600px",
-                objectFit: "contain",
-                objectPosition: "bottom center",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
                 zIndex: 1,
                 position: "relative",
-                filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.4))",
-                maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
               }}
             />
           </div>
