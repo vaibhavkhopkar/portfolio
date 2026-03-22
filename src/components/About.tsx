@@ -35,7 +35,7 @@ export default function About() {
         pointerEvents: "none",
       }} />
 
-      <div className="glass-panel" style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", padding: "4rem" }}>
+      <div className="glass-panel" style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", padding: "clamp(1.5rem, 5vw, 4rem)" }}>
         <ScrollSection>
           <div style={{ marginBottom: "1rem" }}>
             <span style={{

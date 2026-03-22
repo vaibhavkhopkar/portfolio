@@ -258,30 +258,30 @@ export default function Hero() {
             }}
           >
             {/* Metric 1 */}
-            <div className="glass-panel" style={{ padding: "2rem", borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-               <div style={{ marginBottom: "1rem", padding: "14px", borderRadius: "16px", background: "color-mix(in srgb, var(--brand-accent) 15%, transparent)", color: "var(--brand-accent)" }}>
-                 <Cloud size={28} />
+            <div className="glass-panel" style={{ padding: "clamp(1.25rem, 5vw, 2rem)", borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+               <div style={{ marginBottom: "0.75rem", padding: "12px", borderRadius: "16px", background: "color-mix(in srgb, var(--brand-accent) 15%, transparent)", color: "var(--brand-accent)" }}>
+                 <Cloud size={24} />
                </div>
-               <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.25rem" }}>45+</h3>
-               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>Cloud Migrations</p>
+               <h3 style={{ fontSize: "clamp(1.25rem, 4vw, 1.5rem)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.25rem" }}>45+</h3>
+               <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px", textAlign: "center" }}>Cloud Migrations</p>
             </div>
 
             {/* Metric 2 */}
-            <div className="glass-panel" style={{ padding: "2rem", borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-               <div style={{ marginBottom: "1rem", padding: "14px", borderRadius: "16px", background: "color-mix(in srgb, #10b981 15%, transparent)", color: "#10b981" }}>
-                 <BarChart3 size={28} />
+            <div className="glass-panel" style={{ padding: "clamp(1.25rem, 5vw, 2rem)", borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+               <div style={{ marginBottom: "0.75rem", padding: "12px", borderRadius: "16px", background: "color-mix(in srgb, #10b981 15%, transparent)", color: "#10b981" }}>
+                 <BarChart3 size={24} />
                </div>
-               <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.25rem" }}>+34.2%</h3>
-               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>CSAT Growth</p>
+               <h3 style={{ fontSize: "clamp(1.25rem, 4vw, 1.5rem)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.25rem" }}>+34.2%</h3>
+               <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px", textAlign: "center" }}>CSAT Growth</p>
             </div>
 
             {/* Metric 3 */}
-            <div className="glass-panel" style={{ padding: "2rem", borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-               <div style={{ marginBottom: "1rem", padding: "14px", borderRadius: "16px", background: "color-mix(in srgb, var(--brand-gold) 15%, transparent)", color: "var(--brand-gold)" }}>
-                 <ShieldCheck size={28} />
+            <div className="glass-panel" style={{ padding: "clamp(1.25rem, 5vw, 2rem)", borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+               <div style={{ marginBottom: "0.75rem", padding: "12px", borderRadius: "16px", background: "color-mix(in srgb, var(--brand-gold) 15%, transparent)", color: "var(--brand-gold)" }}>
+                 <ShieldCheck size={24} />
                </div>
-               <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.25rem" }}>100%</h3>
-               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>Omnichannel Sync</p>
+               <h3 style={{ fontSize: "clamp(1.25rem, 4vw, 1.5rem)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.25rem" }}>100%</h3>
+               <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px", textAlign: "center" }}>Omnichannel Sync</p>
             </div>
           </div>
         </ScrollSection>
