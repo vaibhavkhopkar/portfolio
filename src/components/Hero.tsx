@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import ScrollSection from "./ui/ScrollSection";
 import { Linkedin } from "lucide-react";
+import FloatingDashboards from "./FloatingDashboards";
 
 
 
@@ -13,6 +14,8 @@ export default function Hero() {
       id="hero"
       style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}
     >
+      <FloatingDashboards />
+
       {/* Hero Content Overlapping the Global Background */}
       <div
         style={{
@@ -180,7 +183,6 @@ export default function Hero() {
         {/* RIGHT PHOTO */}
         <ScrollSection className="animate-float">
           <div
-            className="glass-panel"
             style={{
               position: "relative",
               width: "100%",
@@ -191,6 +193,10 @@ export default function Hero() {
               alignItems: "flex-end",
               justifyContent: "center",
               overflow: "hidden",
+              borderRadius: "24px",
+              border: "1px solid color-mix(in srgb, var(--brand-gold) 20%, transparent)",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              background: "transparent"
             }}
           >
             {/* Cinematic Backlight Glow (behind the person) */}
