@@ -98,7 +98,7 @@ export default function Contact() {
         pointerEvents: "none",
       }} />
 
-      <div className="glass-panel" style={{ maxWidth: "680px", margin: "0 auto", position: "relative", zIndex: 10, padding: "4rem" }}>
+      <div className="glass-panel" style={{ maxWidth: "680px", margin: "0 auto", position: "relative", zIndex: 10, padding: "clamp(1.5rem, 5vw, 4rem)" }}>
         {/* Header */}
         <ScrollSection>
           <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
@@ -138,7 +138,7 @@ export default function Contact() {
           <form
             onSubmit={handleSubmit}
             style={{
-              padding: "2.5rem",
+              padding: "clamp(1.25rem, 4vw, 2.5rem)",
               background: "color-mix(in srgb, var(--bg-surface) 85%, transparent)",
               border: "1px solid rgba(0, 212, 255, 0.12)",
               borderRadius: "24px",
