@@ -1,3 +1,5 @@
+"use client";
+
 import ScrollSection from "./ui/ScrollSection";
 import { Linkedin, Cloud, BarChart3, ShieldCheck } from "lucide-react";
 
