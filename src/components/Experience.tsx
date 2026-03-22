@@ -93,14 +93,12 @@ export default function Experience() {
         {/* Timeline items */}
         <div style={{ position: "relative" }}>
           {/* Vertical line */}
-          <div style={{
+          <div className="timeline-line" style={{
             position: "absolute",
-            left: "50%",
             top: 0,
             bottom: 0,
             width: "1px",
             background: "linear-gradient(to bottom, color-mix(in srgb, var(--accent-1) 40%, transparent), color-mix(in srgb, var(--accent-3) 20%, transparent))",
-            transform: "translateX(-50%)",
           }} />
 
           {timeline.map((item, i) => {
@@ -116,11 +114,9 @@ export default function Experience() {
                   }}
                 >
                   {/* Timeline dot */}
-                  <div style={{
+                  <div className="timeline-dot" style={{
                     position: "absolute",
-                    left: "50%",
                     top: "1.5rem",
-                    transform: "translate(-50%, -50%)",
                     width: "14px",
                     height: "14px",
                     borderRadius: "50%",
@@ -131,11 +127,12 @@ export default function Experience() {
                   }} />
 
                   <div
+                    className="timeline-content"
                     style={{
                       width: "44%",
                       marginRight: isLeft ? "calc(6% + 1px)" : 0,
                       marginLeft: isLeft ? 0 : "calc(6% + 1px)",
-                      padding: "1.5rem 1.75rem",
+                      padding: "clamp(1.25rem, 4vw, 1.75rem)",
                       background: "color-mix(in srgb, var(--bg-surface) 80%, transparent)",
                       border: `1px solid color-mix(in srgb, ${item.color} 15%, transparent)`,
                       borderRadius: "16px",
@@ -218,11 +215,35 @@ export default function Experience() {
       </div>
 
       <style>{`
+        /* Desktop Default Layout (Matches inline styles) */
+        .timeline-line {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .timeline-dot {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
         @media (max-width: 768px) {
-          #experience [style*="width: 44%"] {
-            width: 90% !important;
-            margin-left: 5% !important;
-            margin-right: 5% !important;
+          /* Shift axis to the left */
+          .timeline-line {
+            left: 20px !important;
+            transform: none !important;
+          }
+          .timeline-dot {
+            left: 20px !important;
+            transform: translate(-50%, -50%) !important;
+          }
+          /* Re-indent cards to stack vertically on the right */
+          .timeline-content {
+            width: calc(100% - 50px) !important;
+            margin-left: 50px !important;
+            margin-right: 0 !important;
+          }
+          /* All rows align to flex-start */
+          #experience [style*="justify-content"] {
+            justify-content: flex-start !important;
           }
         }
       `}</style>
