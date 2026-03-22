@@ -24,12 +24,24 @@ export const metadata: Metadata = {
       "20+ years shaping enterprise contact center strategy, cloud transformation, and CX excellence.",
     url: 'https://vaibhavprofile.vercel.app',
     siteName: 'Vaibhav Khopkar Portfolio',
+    images: [
+      {
+        url: 'https://vaibhavprofile.vercel.app/profile.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vaibhav Khopkar - Senior Contact Center Consultant',
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vaibhav Khopkar | Senior Contact Center Consultant',
     description: 'Architecting Customer Experience & Cloud Transformations across 12+ Countries.',
+    images: ['https://vaibhavprofile.vercel.app/profile.png'],
+  },
+  verification: {
+    google: 'google4118a8429c363fa8',
   },
 };
 
