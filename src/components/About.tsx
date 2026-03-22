@@ -160,7 +160,7 @@ export default function About() {
               background: "color-mix(in srgb, var(--bg-surface) 60%, transparent)",
               border: "1px solid color-mix(in srgb, var(--electric-cyan) 20%, transparent)",
               borderRadius: "24px",
-              padding: "3rem",
+              padding: "clamp(1.5rem, 5vw, 3rem)",
               backdropFilter: "blur(16px)",
               boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
             }}>
