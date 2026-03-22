@@ -71,10 +71,10 @@ export default function GlobalCanvas() {
             height: "100%",
             pointerEvents: "none",
             zIndex: 1, // Above the ambient mesh, below content
-            background: \`
-              radial-gradient(400px circle at \${position.x}px \${position.y}px, rgba(0, 212, 255, 0.15), transparent 80%),
-              radial-gradient(800px circle at \${position.x}px \${position.y}px, rgba(212, 175, 55, 0.08), transparent 60%)
-            \`,
+            background: `
+              radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(0, 212, 255, 0.15), transparent 80%),
+              radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(212, 175, 55, 0.08), transparent 60%)
+            `,
             transition: "background 0.15s cubic-bezier(0.1, 0, 0.1, 1)",
           }}
         />
