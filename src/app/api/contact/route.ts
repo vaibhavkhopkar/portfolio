@@ -27,10 +27,9 @@ export async function POST(req: Request) {
     }
 
     // Attempt to send email using Resend
-    // Important: replace 'your-email@example.com' with the email address you verify in Resend dashboard
     const data = await resend.emails.send({
       from: 'Portfolio Contact Form <onboarding@resend.dev>',
-      to: ['your-email@example.com'], // USER MUST UPDATE THIS
+      to: ['vaibhav.khopkar@gmail.com'],
       subject: `New Consulting Inquiry from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       replyTo: email,
