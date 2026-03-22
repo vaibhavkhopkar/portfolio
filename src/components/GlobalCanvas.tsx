@@ -1,14 +1,22 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const ThreeCanvas = dynamic(
-  () => import("@react-three/fiber").then((m) => ({ default: m.Canvas })),
-  { ssr: false }
-);
-const FloatingShape = dynamic(() => import("./FloatingShape"), { ssr: false });
+import { useEffect, useState } from "react";
 
 export default function GlobalCanvas() {
+  const [position, setPosition] = useState({ x: -1000, y: -1000 });
+
+  useEffect(() => {
+    // Only track mouse if the device supports hover (ignores mobile touch)
+    if (window.matchMedia("(hover: hover)").matches) {
+      const handleMouseMove = (e: MouseEvent) => {
+        setPosition({ x: e.clientX, y: e.clientY });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, []);
+
   return (
     <div
       style={{
@@ -17,23 +25,15 @@ export default function GlobalCanvas() {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: 0,
         pointerEvents: "none",
-        opacity: 0.6,
+        zIndex: 0,
+        // The dual radial gradients follow the mouse perfectly, simulating a high-end 3D light array
+        background: `
+          radial-gradient(1200px circle at ${position.x}px ${position.y}px, rgba(212, 175, 55, 0.03), transparent 60%),
+          radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(0, 212, 255, 0.05), transparent 40%)
+        `,
+        transition: "background 0.2s cubic-bezier(0.1, 0, 0.1, 1)",
       }}
-    >
-      <ThreeCanvas
-        camera={{ position: [0, 0, 8], fov: 45 }}
-        gl={{ antialias: true, alpha: true }}
-      >
-        <group position={[-5, 2, -2]}>
-          <FloatingShape />
-        </group>
-        
-        <group position={[5, -2, -2]} scale={0.7}>
-          <FloatingShape />
-        </group>
-      </ThreeCanvas>
-    </div>
+    />
   );
 }
