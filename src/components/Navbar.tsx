@@ -140,19 +140,12 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <a href="#" style={{ textDecoration: "none" }}>
-          <span
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: "1.1rem",
-              fontWeight: 700,
-              color: "var(--text-primary)",
-              letterSpacing: "0.04em",
-            }}
-          >
-            VK
-            <span style={{ color: "var(--electric-cyan)", marginLeft: "1px" }}>_</span>
-          </span>
+        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          <img 
+            src="/logo.png" 
+            alt="VK Executive Logo" 
+            style={{ height: "44px", width: "auto", objectFit: "contain", borderRadius: "6px" }} 
+          />
         </a>
 
         {/* Desktop links */}
