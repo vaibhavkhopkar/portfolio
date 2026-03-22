@@ -5,10 +5,7 @@ import dynamic from "next/dynamic";
 import ScrollSection from "./ui/ScrollSection";
 import { Linkedin } from "lucide-react";
 
-// Swap out the 3D Earth for the Cloud/Network Visualization
-const NetworkCanvas = dynamic(() => import("./NetworkCanvas"), {
-  ssr: false,
-});
+
 
 export default function Hero() {
   return (
@@ -16,10 +13,7 @@ export default function Hero() {
       id="hero"
       style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}
     >
-      {/* 3D Network Background replacing the Earth */}
-      <NetworkCanvas />
-
-      {/* Hero Content Overlapping the 3D Canvas */}
+      {/* Hero Content Overlapping the Global Background */}
       <div
         style={{
           position: "relative",
