@@ -1,26 +1,161 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ───── DARK MODE (Corporate Slate & Gold) ───── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-base:        #0B1121; /* Rich slate dark */
+  --bg-surface:     #1E293B; /* Slightly lighter slate */
+  --bg-nav:         rgba(11, 17, 33, 0.85);
+  --brand-gold:     #D4AF37; /* Classic executive gold */
+  --brand-accent:   #3B82F6; /* Professional trust blue */
+  --text-primary:   #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --border-subtle:  rgba(148, 163, 184, 0.15);
+  
+  --mesh-color-1:   #0F172A;
+  --mesh-color-2:   #1E293B;
+  --mesh-color-3:   rgba(212, 175, 55, 0.05); /* very faint gold glow */
+
+  /* Data Accents (Timeline, Case Studies) */
+  --accent-1:       #00d4ff; /* Electric Cyan */
+  --accent-2:       #ffd700; /* Gold */
+  --accent-3:       #a855f7; /* Purple */
+  
+  --electric-cyan:  #00d4ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ───── LIGHT MODE (Corporate Pearl & Gold) ───── */
+html.light {
+  --bg-base:        #F8FAFC; /* Clean pearl white */
+  --bg-surface:     #FFFFFF;
+  --bg-nav:         rgba(248, 250, 252, 0.9);
+  --brand-gold:     #B8860B; /* Deeper gold for contrast */
+  --brand-accent:   #2563EB; /* Darker trust blue */
+  --text-primary:   #0F172A;
+  --text-secondary: #334155;
+  --text-muted:     #64748B;
+  --border-subtle:  rgba(15, 23, 42, 0.1);
+
+  --mesh-color-1:   #F1F5F9;
+  --mesh-color-2:   #E2E8F0;
+  --mesh-color-3:   rgba(184, 134, 11, 0.05);
+
+  /* Data Accents for Light Mode (Darker for Contrast) */
+  --accent-1:       #0284c7; /* Darker Cyan/Blue */
+  --accent-2:       #b45309; /* Darker Gold/Amber */
+  --accent-3:       #7e22ce; /* Darker Purple */
+  
+  --electric-cyan:  #0284c7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  /* Shifted from techy Space Grotesk to the highly professional Inter */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Smooth theme transition */
+body, section, nav, footer, div, span, p, h1, h2, h3, h4, h5, h6, a, button {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Typography Utility */
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 99px;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--brand-gold);
+}
+
+/* Elegant glass card */
+.glass-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slow, elegant mesh gradient movement */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float-photo {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.animate-fadeInUp { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-float    { animation: float-photo 8s ease-in-out infinite; }
+
+/* The smooth animated background */
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    -45deg,
+    var(--mesh-color-1),
+    var(--mesh-color-2),
+    var(--mesh-color-3),
+    var(--mesh-color-1)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Subtle noise texturing for a premium feel */
+.noise-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism Global Utility */
+.glass-panel {
+  background: color-mix(in srgb, var(--bg-surface) 40%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+}
+
+.dark .glass-panel {
+  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* slight inner highlight */
 }
