@@ -145,7 +145,7 @@ export default function Contact() {
               backdropFilter: "blur(20px)",
             }}
           >
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "1rem", marginBottom: "1rem" }}>
               <div>
                 <label style={{
                   display: "block",
@@ -299,8 +299,8 @@ export default function Contact() {
             flexWrap: "wrap",
           }}>
             {[
-              { icon: "✉️", label: "vaibhav@example.com", href: "mailto:vaibhav@example.com" },
-              { icon: "💼", label: "LinkedIn Profile", href: "#" },
+              { icon: "✉️", label: "vaibhav.khopkar@gmail.com", href: "mailto:vaibhav.khopkar@gmail.com" },
+              { icon: "💼", label: "LinkedIn Profile", href: "https://linkedin.com/" },
             ].map((link) => (
               <a
                 key={link.label}

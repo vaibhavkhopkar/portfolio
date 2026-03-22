@@ -186,9 +186,9 @@ export default function CaseStudies() {
 
               <div style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
                 gap: "2rem",
-                marginBottom: "2.5rem",
+                marginBottom: "3rem",
               }}>
                 <div>
                   <div style={{

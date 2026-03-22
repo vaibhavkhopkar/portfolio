@@ -52,8 +52,8 @@ export default function About() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "5rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
+          gap: "4rem",
           alignItems: "center",
         }}>
           {/* Left: Text */}
@@ -106,8 +106,9 @@ export default function About() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "1rem",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
+                  gap: "1.5rem",
+                  marginTop: "2rem",
                 }}
               >
               {stats.map((s) => (

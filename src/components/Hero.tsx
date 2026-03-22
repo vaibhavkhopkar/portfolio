@@ -38,7 +38,7 @@ export default function Hero() {
           width: "100%",
           padding: "0 2rem",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
           gap: "4rem",
           alignItems: "center",
         }}
